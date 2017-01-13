@@ -17,5 +17,13 @@ node {
 	}
 	stage('Send') {
 		echo 'Send Stage'
+		def to = emailextrecipients([
+	        "jrcarlson@smu.edu",
+	        [$class: 'RequesterRecipientProvider']
+		])
+		if(to != null && !to.isEmpty()) {
+		    mail to: to, subject: "Build has finished with ${currentBuild.result}",
+		            body: "See ${env.BUILD_URL}.\n${testResults}"
+		}
 	}
 }
