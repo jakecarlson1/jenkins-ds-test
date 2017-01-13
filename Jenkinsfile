@@ -12,9 +12,10 @@ node {
 		}
 	}
 	stage('Run') {
-		sh './a.out'
+		testResults = sh(returnStdout: true, script: './a.out').trim()
+		echo testResults
 	}
 	stage('Send') {
-		echo 'Send Stage';
+		echo 'Send Stage'
 	}
 }
