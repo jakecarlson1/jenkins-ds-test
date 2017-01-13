@@ -1,7 +1,7 @@
 node {
 	stage('Build') {
 		echo 'Build Stage';
-		qmakebuilder string-test.pro;
+		qmake string-test.pro;
 		make;
 	}
 	stage('Send') {
