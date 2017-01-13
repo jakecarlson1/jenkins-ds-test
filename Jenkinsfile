@@ -11,6 +11,9 @@ node {
 			sh 'g++ tests.cpp -std=c++11'
 		}
 	}
+	stage('Run') {
+		sh './a.out'
+	}
 	stage('Send') {
 		echo 'Send Stage';
 	}
