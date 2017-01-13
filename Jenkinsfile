@@ -12,10 +12,9 @@ node {
 		}
 	}
 	stage('Run') {
+		echo 'Run Stage'
 		testResults = sh(returnStdout: true, script: './a.out').trim()
-		echo testResults
-	}
-	stage('Send') {
+
 		echo 'Send Stage'
 		def to = emailextrecipients([
 	        "jrcarlson@smu.edu",
