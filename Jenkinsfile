@@ -23,5 +23,7 @@ node {
 		    mail to: to, subject: "Build has finished with ${currentBuild.result}",
 		            body: "See ${env.BUILD_URL}.\n${testResults}"
 		}
+		
+		echo 'End'
 	}
 }
