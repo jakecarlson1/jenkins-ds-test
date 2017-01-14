@@ -17,7 +17,6 @@ node {
 
 		echo 'Send Stage'
 		def to = emailextrecipients([
-	        "jrcarlson@smu.edu",
 	        [$class: 'RequesterRecipientProvider']
 		])
 		if(to != null && !to.isEmpty()) {
