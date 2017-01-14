@@ -16,14 +16,14 @@ node {
 		def testResults = sh(returnStdout: true, script: './a.out').trim()
 
 		echo 'Send Stage'
-		def to = emailextrecipients([
-	        [$class: 'RequesterRecipientProvider']
-		])
-		if(to != null && !to.isEmpty()) {
-		    mail to: to, subject: "Build has finished with ${currentBuild.result}",
-		            body: "See ${env.BUILD_URL}.\n${testResults}"
-		}
-		
+		// def to = emailextrecipients([
+	    //     [$class: 'RequesterRecipientProvider']
+		// ])
+		// if(to != null && !to.isEmpty()) {
+		//     mail to: to, subject: "Build has finished with ${currentBuild.result}",
+		//             body: "See ${env.BUILD_URL}.\n${testResults}"
+		// }
+
 		echo 'End'
 	}
 }
