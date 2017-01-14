@@ -13,7 +13,7 @@ node {
 	}
 	stage('Run') {
 		echo 'Run Stage'
-		testResults = sh(returnStdout: true, script: './a.out').trim()
+		def testResults = sh(returnStdout: true, script: './a.out').trim()
 
 		echo 'Send Stage'
 		def to = emailextrecipients([

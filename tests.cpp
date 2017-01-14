@@ -1,4 +1,7 @@
 #define CATCH_CONFIG_MAIN
+
+#include <cstddef>
+
 #include "catch.hpp"
 
 #include "linkedlist.h"
@@ -11,7 +14,7 @@ TEST_CASE("LinkedList class", "[LinkedList]")
     SECTION("Default constructor")
     {
         LinkedList<int> list;
-        
+
         REQUIRE(list.getLength() == 0);
         REQUIRE(list.getHead() == nullptr);
     }
@@ -19,7 +22,7 @@ TEST_CASE("LinkedList class", "[LinkedList]")
     SECTION("Constructor with head")
     {
         LinkedList<int> list (2);
-        
+
         REQUIRE(list.getHead() != nullptr);
         REQUIRE(list.getHead()->getData() == 2);
         REQUIRE(list.getHead()->getNext() == nullptr);
@@ -30,13 +33,13 @@ TEST_CASE("LinkedList class", "[LinkedList]")
     {
         LinkedList<int> list1 (1);
         LinkedList<int> list2 (list1);
-        
+
         REQUIRE(list2.getHead() != nullptr);
         REQUIRE(list2.getHead()->getData() == 1);
         REQUIRE(list2.getHead()->getNext() == nullptr);
         REQUIRE(list2.getHead()->getLast() == nullptr);
         REQUIRE(list2.size() == list1.size());
-        
+
         list1.add(2);
         LinkedList<int> list3 (list1);
         REQUIRE(list3.get(0) == list1.get(0));
@@ -51,7 +54,7 @@ TEST_CASE("LinkedList class", "[LinkedList]")
         list.add(1);
         list.add(2);
         list.add(3);
-        
+
         REQUIRE(list.getHead()->getData() == 1);
 //        REQUIRE(list.getHead()->getLast() == nullptr);
 //        std::cout << list.getHead()->getLast() << std::endl;
@@ -78,17 +81,17 @@ TEST_CASE("LinkedList class", "[LinkedList]")
     SECTION("get")
     {
         LinkedList<int> list;
-        
+
         list.add(1);
         REQUIRE(list.get(0) == 1);
         REQUIRE(list.get(-1) == 1);
-        
+
         list.add(2);
         REQUIRE(list.get(0) == 1);
         REQUIRE(list.get(1) == 2);
         REQUIRE(list.get(-1) == 2);
         REQUIRE(list.get(-2) == 1);
-        
+
         list.addToFront(0);
         REQUIRE(list.get(0) == 0);
         REQUIRE(list.get(1) == 1);
@@ -115,11 +118,11 @@ TEST_CASE("LinkedList class", "[LinkedList]")
         LinkedList<int> list(0);
         list.add(1);
         list.add(2);
-        
+
         list.remove(0);
         REQUIRE(list.size() == 2);
         REQUIRE(list.get(1) == 2);
-        
+
         list.remove(1);
         REQUIRE(list.size() == 1);
         REQUIRE(list.get(0) == 1);
