@@ -113,20 +113,20 @@ TEST_CASE("LinkedList class", "[LinkedList]")
         REQUIRE(list.size() == 3);
     }
 
-    SECTION("remove")
-    {
-        LinkedList<int> list(0);
-        list.add(1);
-        list.add(2);
-
-        list.remove(0);
-        REQUIRE(list.size() == 2);
-        REQUIRE(list.get(1) == 2);
-
-        list.remove(1);
-        REQUIRE(list.size() == 1);
-        REQUIRE(list.get(0) == 1);
-    }
+    // SECTION("remove")
+    // {
+    //     LinkedList<int> list(0);
+    //     list.add(1);
+    //     list.add(2);
+    //
+    //     list.remove(0);
+    //     REQUIRE(list.size() == 2);
+    //     REQUIRE(list.get(1) == 2);
+    //
+    //     list.remove(1);
+    //     REQUIRE(list.size() == 1);
+    //     REQUIRE(list.get(0) == 1);
+    // }
 
     SECTION("[] operator"){
 
